@@ -1,6 +1,7 @@
 from libro.forms import AutorForm
 from django.shortcuts import redirect, render
 from .forms import AutorForm
+from .models import Autor
 
 def Home(request):
     return render(request,'index.html')
@@ -15,3 +16,7 @@ def crearAutor(request):
     else:
         autor_form=AutorForm()
     return render(request,'libro/crear_autor.html',{'autor_form':autor_form})            
+
+def listarAutor(request) :
+    autores= Autor.objects.all()
+    return render(request,'libro/listar_autor.html',{'autores':autores})

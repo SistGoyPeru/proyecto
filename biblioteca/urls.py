@@ -23,6 +23,6 @@ from libro.views import Home
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('libro/',include(('libro.urls','libro'))),
-    path('home/',Home,name='index')
+    path('',Home,name='index')
 
 ]
